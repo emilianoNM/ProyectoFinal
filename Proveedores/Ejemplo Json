@@ -1,0 +1,26 @@
+import proveedores_v1
+import entregas_programadas
+import pedidos
+import proveedores_consola
+import json
+
+import pickle
+listaJson={}
+
+#class Proveedores(): 
+#def __init__(self,numero_p,nombre_p,logo,razon_social,telefono_p,correo_p,direccion_p):
+proveedor1=proveedores_v1.Proveedores("123","Sabritas","#","noe","554343","dsds@example.com","calle ejemplo numero alguno")
+proveedor2=proveedores_v1.Proveedores("124","Doritos","#","noe","554342","dsdsd@example.com","calle ejemplo numero alguno")
+
+#convierte a Json
+jsone=proveedor1.__dict__
+
+print(jsone['nombre_p'])
+listaJson[jsone['numero_p']]=jsone
+print (listaJson)
+
+lista2=open("Proveedores.dat",'w')
+listacom=json.dumps(listaJson)
+print ("lista guardada")
+lista2.write(listacom)
+lista2.close
