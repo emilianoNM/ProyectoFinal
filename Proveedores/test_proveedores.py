@@ -14,5 +14,3 @@ proveedor1.save()
 proveedor2=proveedores.Proveedores("124","Doritos","#","noe","554342","dsdsd@example.com","calle ejemplo numero alguno")
 proveedor2.save()
 
-proveedor2.load()
-
