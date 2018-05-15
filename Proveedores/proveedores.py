@@ -26,18 +26,19 @@ class Proveedores():
 
     def save(self):
         listaJson={}
+
+        lista1=open("Proveedores.dat",'r')
+        liJson=lista1.read()
+        listaJson=json.loads(liJson)
         
         #convierte a Json
         jsone=self.__dict__
-        print(jsone['nombre_p'])
         
         #Crea lista desde Json
         listaJson[jsone['numero_p']]=jsone
-        print (listaJson)
 
         lista2=open("Proveedores.dat",'w')
         listacom=json.dumps(listaJson)
-        print(listacom)
         lista2.write(listacom)
         lista2.close 
 
@@ -48,14 +49,12 @@ class Proveedores():
             if(numero_pedido==numero_pedido_e):
                 return vp
 
-    def load(self):
+    def load(numero_pp):
         listaJsonS={}
-        print("\n")
-        print("\n")
         b_lectura=open("Proveedores.dat",'r')
         c=b_lectura.read()
-        print (c)
         listaJsonS=json.loads(c)
-        print (listaJsonS)
 
         print ("buscando..")
+
+        return listaJsonS[numero_pp]['nombre_p']
