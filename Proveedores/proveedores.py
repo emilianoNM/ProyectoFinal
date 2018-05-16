@@ -1,5 +1,4 @@
 import pedidos
-import entregas_programadas
 import pickle
 import time
 import os
