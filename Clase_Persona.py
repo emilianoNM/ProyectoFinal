@@ -1,24 +1,21 @@
-
 class Persona():
-    ID
-    Nombre
-    Apellidos
-    Direccion
-    Telefono
-    Edad
-    Correo
-    RFC
-    Contraseña
-    CodPos
+    Nombre=None
+    Apellidos=None
+    Direccion=None
+    Telefono=None
+    Edad=None
+    Correo=None
+    RFC=None
+    Contrasena=None
+    CodPos=None
     
-    def __init__(self.ID,Nombre,Apellidos,Direccion,Telefono,Edad,Correo,RFC,Contraseña,CodPos):
-        self.ID=ID
+    def __init__(self,Nombre,Apellidos,Direccion,Telefono,Edad,Correo,RFC,Contrasena,CodPos):
         self.Nombre=Nombre
         self.Apellidos=Apellidos
-        self.Direccion=Dirección
+        self.Direccion=Direccion
         self.Telefono=Telefono
         self.Edad=Edad
         self.Correo=Correo
         self.RFC=RFC
-        self.Contraseña=Contraseña
+        self.Contrasena=Contrasena
         self.CodPos=CodPos

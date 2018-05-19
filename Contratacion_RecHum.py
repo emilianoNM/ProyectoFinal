@@ -5,7 +5,7 @@ import Main_RecHum
 import uuid
 import constructor
 
-
+#Codigo omitible?
 def contratacion():
     name=str(input("Nombre:\t"))
     fname=str(input("Apellidos:\t"))
@@ -22,15 +22,11 @@ def contratacion():
     salario=int(input("Salario base:\t")) 
     
     idnt=str(uuid.uuid4())
-    
-    sav=bool(input("\nGuardar?\t")) #condiciones booleanas, botones
-    salir=bool(input("\nSalir?\t"))
-    
-    if(sav==True):
-        construye(puesto,name,fname,direccion,tel,age,correo,rfc,password,CodPos,jornada_i,jornada_f,salario,idnt)
-        salida(True)
-    else:
-        pass
+    pass
+
+def guardar_nuevo():
+    constructor.construye(puesto,name,fname,direccion,tel,age,correo,rfc,password,CodPos,jornada_i,jornada_f,salario,idnt)
+    pass
     
 #    if (salir==True):
 #        salida(True)

@@ -1,11 +1,10 @@
 import Clase_Persona
-import Clase_Usuario
 import Clase_Empleados
 
-class Obrero(Empleado):
+class Obrero(Clase_Empleados.Empleado):
     
     
-    def __init__(self,ID,Nombre,Apellidos,Direccion,Telefono,Edad,Correo,RFC,Contraseña,COdPos,Puesto,Horario,Sueldo):
+    def __init__(self,Nombre,Apellidos,Direccion,Telefono,Edad,Correo,RFC,Contrasena,CodPos,Puesto,jornada_i,jornada_f,Salario,Permisos=5):
         pass  
         
     def Consulta_tarea():

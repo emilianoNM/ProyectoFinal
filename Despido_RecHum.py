@@ -1,7 +1,11 @@
 #import Clase_Empleados
 #import Clase_RecHum
 import Main_RecHum
+#import archivo de ventana
 
+def DspVentana():
+    #abre la ventana
+    pass
 
 def despido(ID):
     f=open("EMPLEADOS.dat",'r')

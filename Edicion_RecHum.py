@@ -2,7 +2,11 @@
 #import Clase_RecHum
 import Main_RecHum
 import json
+#import ventana de seccion
 
+def EditVentana():
+    #llamada a ventana
+    pass
 #Por aniadr metodo de captura de entradas de interfaz
 def edicion_carga(IDNT):
     
@@ -23,7 +27,7 @@ def edicion_carga(IDNT):
     leaving=empRec[IDNT]['Salida']
     payment=empRec[IDNT]['Salario']
     passw=empRec[IDNT]['Contrasena']
-    
+    #imprimir en la interfaz
     return (Id, Name, lName, age, phone, mail, code, registry, spot, entrance, leaving, payment, passw)
 
 def edicion_nuevo(pUesto,nAme,fName,dIreccion,tEl,aGe,cOrreo,rFc,pAssword,COdPos,jOrnada_i,jOrnada_f,sAlario,iDnt):

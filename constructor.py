@@ -2,8 +2,8 @@ import Clase_Persona
 import Clase_Empleados
 import Clase_RecHum
 import Clase_Contador
-import Clase_Admin_Productos
-import Clase_Gerente_gerenal
+import Clase_Admin
+import Clase_Gerente
 import Clase_Obrero
 
 import pickle
@@ -16,25 +16,30 @@ edit=json.loads(carga)
 
 def construye(pUesto,nAme,fName,dIreccion,tEl,aGe,cOrreo,rFc,pAssword,COdPos,jOrnada_i,jOrnada_f,sAlario,iDnt):
     if(pUesto==1):
-        #iDnt=Clase_RecHum.RecHuman(nAme,fName,dIreccion,tEl,aGe,cOrreo,rFc,pAssword,COdPos,pUesto,jOrnada_i,jOrnada_f,sAlario)
-        edit[iDnt]={'ID':iDnt,'Nombre':nAme,'Apellido':fName,'Edad':aGe,'Telefono':tEl,'Correo':cOrreo,'Codigo-Postal':COdPos,'RFC':rFc,'Puesto':1,'Entrada':jOrnada_i,'Salida':jornada_f,'Salario':sAlario,'Contrasena':pAssword}
+        iDnt=Clase_RecHum.RecHuman(nAme,fName,dIreccion,tEl,aGe,cOrreo,rFc,pAssword,COdPos,pUesto,jOrnada_i,jOrnada_f,sAlario)
+        convert=self.__dict__
+        edit[convert[iDnt]]=convert
     elif(pUesto==2):
-        #iDnt=Clase_Contador.Contador(nAme,fName,dIreccion,tEl,aGe,cOrreo,rFc,pAssword,COdPos,pUesto,jOrnada_i,jOrnada_f,sAlario)
-        edit[iDnt]={'ID':iDnt,'Nombre':nAme,'Apellido':fName,'Edad':aGe,'Telefono':tEl,'Correo':cOrreo,'Codigo-Postal':COdPos,'RFC':rFc,'Puesto':2,'Entrada':jOrnada_i,'Salida':jornada_f,'Salario':sAlario,'Contrasena':pAssword}        
+        iDnt=Clase_Contador.Contador(nAme,fName,dIreccion,tEl,aGe,cOrreo,rFc,pAssword,COdPos,pUesto,jOrnada_i,jOrnada_f,sAlario)
+        convert=self.__dict__
+        edit[convert[iDnt]]=convert
     elif(pUesto==3):
-        #iDnt=Clase_Admin_Productos.Admin_producto(nAme,fName,dIreccion,tEl,aGe,cOrreo,rFc,pAssword,COdPos,pUesto,jOrnada_i,jOrnada_f,sAlario)
-        edit[iDnt]={'ID':iDnt,'Nombre':nAme,'Apellido':fName,'Edad':aGe,'Telefono':tEl,'Correo':cOrreo,'Codigo-Postal':COdPos,'RFC':rFc,'Puesto':3,'Entrada':jOrnada_i,'Salida':jornada_f,'Salario':sAlario,'Contrasena':pAssword}      
+        iDnt=Clase_Admin_Productos.Admin_producto(nAme,fName,dIreccion,tEl,aGe,cOrreo,rFc,pAssword,COdPos,pUesto,jOrnada_i,jOrnada_f,sAlario)
+        convert=self.__dict__
+        edit[convert[iDnt]]=convert
     elif(pUesto==4):
-        #iDnt=Clase_Gerente_general.Gerente(nAme,fName,dIreccion,tEl,aGe,cOrreo,rFc,pAssword,COdPos,pUesto,jOrnada_i,jOrnada_f,sAlario)
-        edit[iDnt]={'ID':iDnt,'Nombre':nAme,'Apellido':fName,'Edad':aGe,'Telefono':tEl,'Correo':cOrreo,'Codigo-Postal':COdPos,'RFC':rFc,'Puesto':4,'Entrada':jOrnada_i,'Salida':jornada_f,'Salario':sAlario,'Contrasena':pAssword}        
+        iDnt=Clase_Gerente_general.Gerente(nAme,fName,dIreccion,tEl,aGe,cOrreo,rFc,pAssword,COdPos,pUesto,jOrnada_i,jOrnada_f,sAlario)
+        convert=self.__dict__
+        edit[convert[iDnt]]=convert
     elif(pUesto==5):
-        #iDnt=Clase_Obreor.Obrero(nAme,fName,dIreccion,tEl,aGe,cOrreo,rFc,pAssword,COdPos,pUesto,jOrnada_i,jOrnada_f,sAlario)
-        edit[iDnt]={'ID':iDnt,'Nombre':nAme,'Apellido':fName,'Edad':aGe,'Telefono':tEl,'Correo':cOrreo,'Codigo-Postal':COdPos,'RFC':rFc,'Puesto':5,'Entrada':jOrnada_i,'Salida':jornada_f,'Salario':sAlario,'Contrasena':pAssword}        
+        iDnt=Clase_Obreor.Obrero(nAme,fName,dIreccion,tEl,aGe,cOrreo,rFc,pAssword,COdPos,pUesto,jOrnada_i,jOrnada_f,sAlario)
+        convert=self.__dict__
+        edit[convert[iDnt]]=convert
     else:
         pass
 
-f=open("EMPLEADOS.dat",'w')
-cadena=json.dumps(edit)
-f.write(cadena)
-f.close()
+    f=open("EMPLEADOS.dat",'w')
+    cadena=json.dumps(edit)
+    f.write(cadena)
+    f.close()
     
