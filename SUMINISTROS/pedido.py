@@ -22,7 +22,7 @@ class Pedido:
         self.arc.close()
     def revision(self):
         arcL=open("lista_pedido.txt")
-        a=pickle.load()
+        pedido=pickle.load()
         
         
         
