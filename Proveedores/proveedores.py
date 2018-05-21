@@ -1,4 +1,5 @@
 import pedidos
+import entregas_programadas
 import pickle
 import time
 import os
@@ -26,9 +27,9 @@ class Proveedores():
     def save(self):
         listaJson={}
 
-        lista1=open("Proveedores.dat",'r')
-        liJson=lista1.read()
-        listaJson=json.loads(liJson)
+        lista=open("Proveedores.dat",'r')
+        lisJson=lista.read()
+        listaJson=json.loads(lisJson)
         
         #convierte a Json
         jsone=self.__dict__
@@ -38,8 +39,10 @@ class Proveedores():
 
         lista2=open("Proveedores.dat",'w')
         listacom=json.dumps(listaJson)
+        print("Nuevo Proveedor agregado")
+        print(listacom)
         lista2.write(listacom)
-        lista2.close 
+        lista2.close()
 
     def validar_pedido(numero_pedido_e):
         vp_lectura=open("pedidosp.txt","rb")
