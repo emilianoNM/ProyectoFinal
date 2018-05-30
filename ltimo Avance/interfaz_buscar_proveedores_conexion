@@ -1,0 +1,132 @@
+import proveedores
+
+import tkinter
+
+from tkinter import *
+
+class ventanabuscar():
+    def __init__(self,master):
+        self.numero_p=StringVar()
+        self.nombre_p=StringVar()
+        self.logo=StringVar()
+        self.razon_social=StringVar()
+        self.telefono_p=StringVar()
+        self.correo_p=StringVar()
+        self.direccion_p=StringVar()
+
+        self.var=StringVar()
+
+        self.master=master
+        self.master.title("Proveedores")
+
+        self.titulo=Frame(self.master,width=500,height=400)
+        self.titulo.pack(fill="y")
+        self.titulo1=Label(self.titulo,text="BUSCAR PROVEEDOR",font=(80))
+        self.titulo1.grid(row=1,column=1)
+        self.titulo1.config(bd=10)
+        self.titulo1.config(relief="groove")
+
+        self.titulo2=Label(self.titulo,text="Elige un dato para buscar",font=(80))
+        self.titulo2.grid(row=2,column=1)
+        self.titulo2.config(bd=10)
+        self.titulo2.config(relief="groove")
+    
+    #ventana
+        self.Vetana=Frame(self.master,width=500,height=400)
+        self.Vetana.pack(fill="y")
+        self.Vetana.config(relief="groove")
+        
+        self.var.set('Elige un dato')
+        self.opciones=['Numero Proveedor','Nombre Proveedor','Razon Social','Correo']
+        self.opciones=OptionMenu(self.Vetana,self.var,*self.opciones)
+        self.opciones.config(background="white")
+        self.opciones.grid(row=1,column=1)
+
+        stropcion=self.var.get()
+        print(stropcion)
+    
+    #Abrimos cuerpo
+        self.cuerpo=Frame(self.master,width=500,height=400)
+        self.cuerpo.pack(fill="x")
+        self.etiqueta_prueba=Label(self.cuerpo,text=stropcion)
+        self.etiqueta_prueba.grid(row=1,column=1,sticky="e",padx=10,pady=5)
+        self.prueba=StringVar()
+        self.prueba_entry=Entry(self.cuerpo,textvariable=self.prueba)
+        self.prueba_entry.grid(row=1,column=2,sticky="e",padx=10,pady=5)
+
+        #final
+        self.botones=Frame(self.master,width=10,height=20)
+        self.botones.pack(fill="y")
+
+        self.Buscar=Button(self.botones,command=self.load,text="Buscar",background="gray",relief=FLAT)
+        self.Buscar.grid(row=1,column=1)
+        self.Cancelar=Button(self.botones,command=self.cancelar,text="Cancelar",background="white",relief=FLAT)
+        self.Cancelar.grid(row=1,column=2)
+        self.botones.config(bd=5)
+        self.botones.config(relief="groove")
+        self.botones.config(cursor="hand2")
+
+        #numero del proveedor
+        if stropcion in ("Elige un dato"):
+            self.etiqueta_numerop=Label(self.cuerpo,text="Ingresa Numero Proveedor:")
+            self.etiqueta_numerop.grid(row=2,column=1,sticky="e",padx=10,pady=5)
+            self.numero_p=StringVar()
+            self.numero_entry=Entry(self.cuerpo,textvariable=self.numero_p)
+            self.numero_entry.grid(row=2,column=2,sticky="e",padx=10,pady=5)
+            strNumero=self.numero_p.get()
+            print(strNumero)
+        #nombre del proveedor
+        if stropcion in ("Nombre Proveedor"):
+            self.etiqueta_nombre=Label(self.cuerpo,text="Ingresa Nombre Proveedor:")
+            self.etiqueta_nombre.grid(row=2,column=1,sticky="e",padx=10,pady=5)
+            self.nombre_p=StringVar()
+            self.nombre_entry=Entry(self.cuerpo,textvariable=self.nombre_p)
+            self.nombre_entry.grid(row=2,column=2,sticky="e",padx=10,pady=5)
+        #Razon Social
+        if stropcion in ("Razon Social"):
+            self.etiqueta_rs=Label(self.cuerpo,text="Ingresa Razon Social: ")
+            self.etiqueta_rs.grid(row=5,column=1,sticky="e",padx=10,pady=5)
+            self.razon_social=StringVar()
+            self.rs_entry=Entry(self.cuerpo,textvariable=self.razon_social)
+            self.rs_entry.grid(row=5,column=2,sticky="e",padx=10,pady=5)
+        #Correo
+        if stropcion in ("Correo"):
+            self.etiqueta_correo=Label(self.cuerpo,text="Ingresa Correo: ")
+            self.etiqueta_correo.grid(row=7,column=1,sticky="e",padx=10,pady=5)
+            self.correo_p=StringVar()
+            self.correo_entry=Entry(self.cuerpo,textvariable=self.correo_p)
+            self.correo_entry.grid(row=7,column=2,sticky="e",padx=10,pady=5)
+
+    def load():
+
+        #numero del proveedor
+        if stropcion in ("Elige un dato"):
+            strNumero=self.numero_p.get()
+            nombrep_buscado=proveedores.Proveedores.load(strNumero)
+            print (nombrep_buscado)
+        #nombre del proveedor
+        if stropcion in ("Nombre Proveedor"):
+            strNombre=self.nombre_p.get()
+            nombrep_buscado=proveedores.Proveedores.load(strNombre)
+            print (nombrep_buscado)
+        #Razon Social
+        if stropcion in ("Razon Social"):
+            strRs=self.razon_social.get()
+            nombrep_buscado=proveedores.Proveedores.load(strRs)
+            print (nombrep_buscado)
+        #Correo
+        if stropcion in ("Correo"):
+            strCorreo=self.correo_p.get()
+            nombrep_buscado=proveedores.Proveedores.load(strCorreo)
+            print (nombrep_buscado)
+            
+    def cancelar():
+        self.master.destroy()
+
+def main():
+    root=Tk()
+    ventana=ventanabuscar(root)
+    root.mainloop()
+
+if __name__ == '__main__':
+    main()
